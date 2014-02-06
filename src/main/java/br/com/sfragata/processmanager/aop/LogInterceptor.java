@@ -20,7 +20,7 @@ public class LogInterceptor {
 
 	private static Log logger = LogFactory.getLog(LogInterceptor.class);
 
-	@Around("execution(* *..sfragata.processmanager.manager.impl.*.*(..))")
+	@Around("execution(* br.com.sfragata.processmanager.manager.impl..*(..))")
 	public Object intercept(ProceedingJoinPoint pjp) throws Throwable {
 		String serviceName = new StringBuilder(pjp.getTarget().getClass()
 				.getName()).append(".").append(pjp.getSignature().getName())

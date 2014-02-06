@@ -1,7 +1,7 @@
 /**
  * 
  */
-package br.com.sfragata.processmanager.manager;
+package br.com.sfragata.processmanager.manager.impl;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
+import br.com.sfragata.processmanager.manager.ProcessManagerException;
 import br.com.sfragata.processmanager.to.ProcessTO;
 import br.com.sfragata.processmanager.util.MethodInvoker;
 
@@ -21,7 +22,7 @@ import br.com.sfragata.processmanager.util.MethodInvoker;
  * 
  */
 @Component
-public abstract class AbstractProccessManager {
+public abstract class ProcessManagerBaseImpl {
 	@Autowired
 	private MethodInvoker methodInvoker;
 

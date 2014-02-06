@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
-import br.com.sfragata.processmanager.manager.AbstractProccessManager;
 import br.com.sfragata.processmanager.manager.ProcessManager;
 import br.com.sfragata.processmanager.to.ProcessTO;
 
@@ -24,7 +23,7 @@ import br.com.sfragata.processmanager.to.ProcessTO;
 @Component
 @Qualifier("SysinternalsPsListWindows")
 public class ProcessManagerSysinternalsPsListImpl extends
-		AbstractProccessManager implements ProcessManager {
+		ProcessManagerBaseImpl implements ProcessManager {
 
 	public ProcessManagerSysinternalsPsListImpl() {
 	}
