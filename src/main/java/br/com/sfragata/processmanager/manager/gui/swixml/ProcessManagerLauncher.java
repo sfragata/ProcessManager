@@ -22,6 +22,7 @@ public class ProcessManagerLauncher {
 	public static void main(String[] args) {
 		Thread t = new Thread(new Runnable() {
 
+			@SuppressWarnings("resource")
 			@Override
 			public void run() {
 				try {
