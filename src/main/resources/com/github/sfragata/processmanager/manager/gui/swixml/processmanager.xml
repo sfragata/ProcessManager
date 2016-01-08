@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<frame xmlns="http://www.swixml.org/2007/Swixml"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.swixml.org/2007/Swixml swixml.xsd "
+	defaultcloseoperation="JFrame.EXIT_ON_CLOSE" id="frame"
+	title="Process Manager" size="1024, 768" bundle="locale.messages">
+	<panel constraints="BorderLayout.NORTH" name="panelNorth"
+		layout="GridBagLayout">
+		<label name="labelParam" text="PARAM">
+			<gridbagconstraints anchor="10" fill="0" gridheight="1"
+				gridwidth="1" gridx="0" gridy="0" ipadx="0" ipady="0" weightx="0.0"
+				weighty="0.0" />
+		</label>
+		<textfield name="textFieldParam" columns="15" id="textFieldParameter">
+			<gridbagconstraints fill="2" gridwidth="2" gridx="1"
+				gridy="0" />
+		</textfield>
+		<button name="buttonGetProcess" text="GET_PROCESS"
+			actioncommand="GET_PROCESSES" mnemonic="VK_O" defaultcapable="true">
+			<gridbagconstraints gridx="3" gridy="0" />
+		</button>
+	</panel>
+	<scrollpane constraints="BorderLayout.CENTER" name="panelCenter" wheelscrollingenabled="true"
+		layout="BorderLayout">
+		<table constraints="BorderLayout.CENTER" name="tableResult" id="tableProcesses"
+			cellselectionenabled="false" autoresizemode="JTable.AUTO_RESIZE_ALL_COLUMNS"
+			showhorizontallines="true" showverticallines="false"
+			requestfocusenabled="false" rowselectionallowed="true"
+			columnselectionallowed="false" autocreatecolumnsfrommodel="true"
+			selectionmode="2" editingcolumn="false" 
+			initclass="com.github.sfragata.processmanager.manager.gui.swixml.ProcessManagerTableModel" />
+	</scrollpane>
+	<panel constraints="BorderLayout.SOUTH" name="panelSouth"
+		layout="BorderLayout">
+		<button constraints="BorderLayout.WEST"
+			actioncommand="KILL_PROCESSES" name="buttonKillProcesses"
+			text="KILL_PROCESSES" mnemonic="VK_F"/>
+		<button constraints="BorderLayout.EAST" name="buttonSair"
+			text="QUIT" actioncommand="QUIT" mnemonic="VK_Q"/>
+	</panel>
+</frame>

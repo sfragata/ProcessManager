@@ -20,7 +20,7 @@
         </layout>
     </appender>
 
-    <category name="br.com.sfragata.processmanager">
+    <category name="com.github.sfragata.processmanager">
         <priority value="debug" />
     </category>
 	
