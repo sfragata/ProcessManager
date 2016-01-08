@@ -8,20 +8,26 @@
 	<version>1.0-SNAPSHOT</version>
 	<name>ProcessManager</name>
 	<url>http://maven.apache.org</url>
+	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring.version>3.2.4.RELEASE</spring.version>
-		<aspectj.version>1.7.4</aspectj.version>
-		<java-version>1.8</java-version>
-		<maven-compiler-plugin-version>3.1</maven-compiler-plugin-version>
-		<appassembler-version>1.1.1</appassembler-version>
-		<Log4JManager-version>1.0</Log4JManager-version>
-		<swixml-version>1.5.144</swixml-version>
+		<aspectj-version>1.7.4</aspectj-version>
 		<cglib-version>2.2</cglib-version>
-		<commons-logging-version>1.1.1</commons-logging-version>
-		<log4j-version>1.2.16</log4j-version>
-		<junit-version>4.8.1</junit-version>
 		<aspectj-maven-plugin-version>1.4</aspectj-maven-plugin-version>
+		<spring-version>3.2.13.RELEASE</spring-version>
+		<maven-compiler-plugin-version>3.3</maven-compiler-plugin-version>
+		<maven-source-plugin-version>2.4</maven-source-plugin-version>
+		<appassembler-maven-plugin.version>1.10</appassembler-maven-plugin.version>
+		<appassembler-version>1.1.1</appassembler-version>
+		<webstart-maven-plugin.version>1.0-beta-6</webstart-maven-plugin.version>
+		<junit-version>4.12</junit-version>
+		<log4j-version>1.2.17</log4j-version>
+		<commons-lang3.version>3.4</commons-lang3.version>
+		<log4jmanager-version>1.0</log4jmanager-version>
+		<keytool-api-1.7.version>1.4</keytool-api-1.7.version>
+		<java.version>1.8</java.version>
+		<swixml-version>1.5.144</swixml-version>
+		<slf4j-version>1.7.13</slf4j-version>
 	</properties>
 	<build>
 		<plugins>
@@ -34,6 +40,19 @@
 					<target>${java-version}</target>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>${maven-source-plugin-version}</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>			
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>aspectj-maven-plugin</artifactId>
@@ -54,12 +73,12 @@
 					<dependency>
 						<groupId>org.aspectj</groupId>
 						<artifactId>aspectjrt</artifactId>
-						<version>${aspectj.version}</version>
+						<version>${aspectj-version}</version>
 					</dependency>
 					<dependency>
 						<groupId>org.aspectj</groupId>
 						<artifactId>aspectjtools</artifactId>
-						<version>${aspectj.version}</version>
+						<version>${aspectj-version}</version>
 					</dependency>
 				</dependencies>
 			</plugin>
@@ -81,7 +100,7 @@
 				<configuration>
 					<programs>
 						<program>
-							<mainClass>br.com.sfragata.processmanager.manager.gui.swixml.ProcessManagerLauncher</mainClass>
+							<mainClass>com.github.sfragata.processmanager.manager.gui.swixml.ProcessManagerLauncher</mainClass>
 							<name>processmanager</name>
 						</program>
 					</programs>
@@ -148,27 +167,27 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-			<version>${spring.version}</version>
+			<version>${spring-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aop</artifactId>
-			<version>${spring.version}</version>
+			<version>${spring-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>${spring.version}</version>
+			<version>${spring-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aspects</artifactId>
-			<version>${spring.version}</version>
+			<version>${spring-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
-			<version>${spring.version}</version>
+			<version>${spring-version}</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -177,23 +196,18 @@
 			<artifactId>log4j</artifactId>
 			<version>${log4j-version}</version>
 		</dependency>
-		<dependency>
-			<groupId>commons-logging</groupId>
-			<artifactId>commons-logging</artifactId>
-			<version>${commons-logging-version}</version>
-		</dependency>
 
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
-			<version>${aspectj.version}</version>
+			<version>${aspectj-version}</version>
 			<type>jar</type>
 		</dependency>
 
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjtools</artifactId>
-			<version>${aspectj.version}</version>
+			<version>${aspectj-version}</version>
 		</dependency>
 
 		<dependency>
@@ -209,9 +223,21 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j-version}</version>
+		</dependency>
+
+
+		<dependency>
 			<groupId>br.com.sfragata</groupId>
 			<artifactId>Log4JManager</artifactId>
-			<version>${Log4JManager-version}</version>
+			<version>${log4jmanager-version}</version>
 		</dependency>
 	</dependencies>
 
