@@ -8,26 +8,39 @@
 	<version>1.0-SNAPSHOT</version>
 	<name>ProcessManager</name>
 	<url>http://maven.apache.org</url>
-	
+
+
+	<repositories>
+		<repository>
+			<id>my.mvn.repo</id>
+			<url>https://github.com/sfragata/mvn-sfragata-repo/raw/master</url>
+			<!-- use snapshot version -->
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+		</repository>
+	</repositories>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<aspectj-version>1.7.4</aspectj-version>
+		<aspectj-version>1.9.5</aspectj-version>
 		<cglib-version>2.2</cglib-version>
-		<aspectj-maven-plugin-version>1.4</aspectj-maven-plugin-version>
-		<spring-version>3.2.13.RELEASE</spring-version>
-		<maven-compiler-plugin-version>3.3</maven-compiler-plugin-version>
+		<aspectj-maven-plugin-version>1.11.1</aspectj-maven-plugin-version>
+		<spring-version>5.2.2.RELEASE</spring-version>
+		<maven-compiler-plugin-version>3.8.1</maven-compiler-plugin-version>
 		<maven-source-plugin-version>2.4</maven-source-plugin-version>
-		<appassembler-maven-plugin.version>1.10</appassembler-maven-plugin.version>
-		<appassembler-version>1.1.1</appassembler-version>
+		<appassembler-maven-plugin.version>2.1.0</appassembler-maven-plugin.version>
 		<webstart-maven-plugin.version>1.0-beta-6</webstart-maven-plugin.version>
 		<junit-version>4.12</junit-version>
 		<log4j-version>1.2.17</log4j-version>
-		<commons-lang3.version>3.4</commons-lang3.version>
+		<commons-lang3.version>3.9</commons-lang3.version>
 		<log4jmanager-version>1.0</log4jmanager-version>
 		<keytool-api-1.7.version>1.4</keytool-api-1.7.version>
-		<java.version>1.8</java.version>
+		<java.version>11</java.version>
+		<aspect-target.version>1.9</aspect-target.version>
 		<swixml-version>1.5.144</swixml-version>
-		<slf4j-version>1.7.13</slf4j-version>
+		<slf4j-version>1.7.29</slf4j-version>
 	</properties>
 	<build>
 		<plugins>
@@ -36,8 +49,10 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>${maven-compiler-plugin-version}</version>
 				<configuration>
-					<source>${java-version}</source>
-					<target>${java-version}</target>
+					<release>${java.version}</release>
+					<compilerArgs>
+						<arg>-Xlint:unchecked</arg>
+					</compilerArgs>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -54,12 +69,13 @@
 				</executions>
 			</plugin>			
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
+				<groupId>com.github.m50d</groupId>
 				<artifactId>aspectj-maven-plugin</artifactId>
 				<version>${aspectj-maven-plugin-version}</version>
 				<configuration>
-					<source>${java-version}</source>
-					<target>${java-version}</target>
+					<complianceLevel>${java.version}</complianceLevel>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
 				</configuration>
 				<executions>
 					<execution>
@@ -83,20 +99,9 @@
 				</dependencies>
 			</plugin>
 			<plugin>
-				<artifactId>maven-source-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>attach-sources</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>appassembler-maven-plugin</artifactId>
-				<version>${appassembler-version}</version>
+				<version>${appassembler-maven-plugin.version}</version>
 				<configuration>
 					<programs>
 						<program>
