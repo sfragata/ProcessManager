@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.github.sfragata.processmanager.gui.swixml;
 
 import com.github.sfragata.processmanager.config.ProcessManagerUIConfig;
@@ -15,22 +12,15 @@ public class ProcessManagerLauncher {
 
 	private static final Logger logger = LoggerFactory.getLogger(ProcessManagerLauncher.class);
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
-		Thread t = new Thread(new Runnable() {
-
-			@SuppressWarnings("resource")
-			public void run() {
-				try {
-					if (logger.isInfoEnabled()) {
-						logger.info("Starting application...");
-					}
-					new AnnotationConfigApplicationContext(ProcessManagerUIConfig.class);
-				} catch (Exception e) {
-					logger.error("Error", e);
+		Thread t = new Thread(() -> {
+			try {
+				if (logger.isInfoEnabled()) {
+					logger.info("Starting application...");
 				}
+				new AnnotationConfigApplicationContext(ProcessManagerUIConfig.class);
+			} catch (Exception e) {
+				logger.error("Error", e);
 			}
 		});
 		t.setName("ProcessManagerLauncher");

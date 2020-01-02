@@ -1,11 +1,8 @@
-/**
- * 
- */
 package com.github.sfragata.processmanager.manager;
 
-import java.util.List;
-
 import com.github.sfragata.processmanager.to.ProcessTO;
+
+import java.util.List;
 
 /**
  * @author Silvio Fragata da Silva
@@ -13,8 +10,8 @@ import com.github.sfragata.processmanager.to.ProcessTO;
  */
 public interface ProcessManager {
 
-	public List<ProcessTO> getProcesses(String pattern)
+	List<ProcessTO> getProcesses(String pattern)
 			throws ProcessManagerException;
 
-	public void killProcess(String pid) throws ProcessManagerException;
+	void killProcess(String pid) throws ProcessManagerException;
 }

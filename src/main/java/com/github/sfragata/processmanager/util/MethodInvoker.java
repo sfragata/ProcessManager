@@ -1,12 +1,9 @@
-/**
- * 
- */
 package com.github.sfragata.processmanager.util;
+
+import org.springframework.stereotype.Component;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-
-import org.springframework.stereotype.Component;
 
 /**
  * @author Silvio Fragata da Silva - a5014999
@@ -19,8 +16,8 @@ public class MethodInvoker {
 	public void invokeSetMethod(Object obj, String methodName, Object param,
 			Class paramType) throws NoSuchMethodException,
 			InvocationTargetException, IllegalAccessException {
-		Class partype[] = new Class[1];
-		Object arglist[] = new Object[1];
+		Class[] partype = new Class[1];
+		Object[] arglist = new Object[1];
 		partype[0] = paramType;
 		arglist[0] = param;
 		Method method = obj.getClass().getMethod(methodName, partype);

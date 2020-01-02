@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.github.sfragata.processmanager.config;
 
 import org.springframework.context.annotation.*;
@@ -13,7 +10,7 @@ import org.springframework.context.support.ResourceBundleMessageSource;
  * 
  */
 @Configuration
-@ComponentScan(basePackages = { "com.github.sfragata.processmanager.apo", "com.github.sfragata.processmanager.manager"
+@ComponentScan(basePackages = { "com.github.sfragata.processmanager.aop", "com.github.sfragata.processmanager.manager"
 		,"com.github.sfragata.processmanager.util", "br.com.sfragata.log4jmanager" })
 @EnableMBeanExport
 @EnableAspectJAutoProxy

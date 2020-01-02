@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.github.sfragata.processmanager.manager.impl;
 
 import java.io.BufferedReader;
@@ -48,7 +45,7 @@ public class ProcessManagerSysinternalsPsListImpl extends ProcessManagerBaseImpl
 			throws IOException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
 		try (BufferedReader bufferedReader = new BufferedReader(
 				new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
-			List<ProcessTO> process = new ArrayList<ProcessTO>();
+			List<ProcessTO> process = new ArrayList<>();
 			int nLine = 0;
 
 			while (bufferedReader.ready()) {

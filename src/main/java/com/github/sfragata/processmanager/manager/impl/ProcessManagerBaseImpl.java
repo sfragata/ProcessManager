@@ -1,7 +1,11 @@
-/**
- * 
- */
 package com.github.sfragata.processmanager.manager.impl;
+
+import com.github.sfragata.processmanager.manager.ProcessManagerException;
+import com.github.sfragata.processmanager.to.ProcessTO;
+import com.github.sfragata.processmanager.util.MethodInvoker;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,14 +15,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
-
-import com.github.sfragata.processmanager.manager.ProcessManagerException;
-import com.github.sfragata.processmanager.to.ProcessTO;
-import com.github.sfragata.processmanager.util.MethodInvoker;
 
 /**
  * @author Silvio Fragata da Silva
@@ -86,7 +82,7 @@ public abstract class ProcessManagerBaseImpl {
 			String[] setMethods = getSetProcessMethods();
 			String line = processLine.trim();
 			for (int i = 0; i < setMethods.length; i++) {
-				String column = "";
+				String column;
 				if (i == (setMethods.length - 1)) {
 					column = line;
 				} else {

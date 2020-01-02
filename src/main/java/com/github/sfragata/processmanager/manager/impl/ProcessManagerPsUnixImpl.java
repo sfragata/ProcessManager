@@ -1,7 +1,10 @@
-/**
- * 
- */
 package com.github.sfragata.processmanager.manager.impl;
+
+import com.github.sfragata.processmanager.manager.ProcessManager;
+import com.github.sfragata.processmanager.to.ProcessTO;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,13 +14,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
-
-import com.github.sfragata.processmanager.manager.ProcessManager;
-import com.github.sfragata.processmanager.to.ProcessTO;
 
 /**
  * @author Silvio Fragata da Silva
@@ -35,13 +31,13 @@ public class ProcessManagerPsUnixImpl extends ProcessManagerBaseImpl implements 
 			throws IOException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
 		try (BufferedReader bufferedReader = new BufferedReader(
 				new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
-			List<ProcessTO> process = new ArrayList<ProcessTO>();
+			List<ProcessTO> process = new ArrayList<>();
 			int nLine = 0;
 
 			while (bufferedReader.ready()) {
 				String line = bufferedReader.readLine();
 				if (line != null && !line.trim().equals("")
-						&& line.indexOf(createCommand(getListCommand(pattern))) == -1
+						&& !line.contains(createCommand(getListCommand(pattern)))
 						&& (StringUtils.hasLength(pattern) || nLine > 1)) {
 					process.add(createProcessManagerTO(line, pattern));
 				}

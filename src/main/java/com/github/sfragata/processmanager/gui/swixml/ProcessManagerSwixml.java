@@ -28,7 +28,7 @@ public class ProcessManagerSwixml implements ActionListener {
 
 	private static final Logger logger = LoggerFactory.getLogger(ProcessManagerSwixml.class);
 
-	private SwingEngine swixml;
+	private final SwingEngine swixml;
 
 	private ProcessManager manager;
 
@@ -104,8 +104,8 @@ public class ProcessManagerSwixml implements ActionListener {
 			int[] selectedRows = table.getSelectedRows();
 			if (selectedRows.length > 0) {
 				StringBuilder bufferErrorProcess = new StringBuilder();
-				for (int i = 0; i < selectedRows.length; i++) {
-					String pid = (String) defaultTableModel.getValueAt(selectedRows[i], 1);
+				for (int selectedRow:  selectedRows) {
+					String pid = (String) defaultTableModel.getValueAt(selectedRow, 1);
 					try {
 						manager.killProcess(pid);
 					} catch (ProcessManagerException e) {

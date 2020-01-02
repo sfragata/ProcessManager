@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.github.sfragata.processmanager.gui.swixml;
 
 import javax.swing.table.DefaultTableModel;
@@ -25,44 +22,23 @@ public class ProcessManagerTableModel extends DefaultTableModel {
 				"CPU Time", "Elapsed Time" }, 0);
 	}
 
-	/**
-	 * @param rowCount
-	 * @param columnCount
-	 */
 	public ProcessManagerTableModel(int rowCount, int columnCount) {
 		super(rowCount, columnCount);
 	}
 
-	/**
-	 * @param columnNames
-	 * @param rowCount
-	 */
-	@SuppressWarnings("rawtypes")
 	public ProcessManagerTableModel(Vector columnNames, int rowCount) {
 		super(columnNames, rowCount);
 	}
 
-	/**
-	 * @param columnNames
-	 * @param rowCount
-	 */
 	public ProcessManagerTableModel(Object[] columnNames, int rowCount) {
 		super(columnNames, rowCount);
 	}
 
-	/**
-	 * @param data
-	 * @param columnNames
-	 */
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings("unchecked")
 	public ProcessManagerTableModel(Vector data, Vector columnNames) {
 		super(data, columnNames);
 	}
 
-	/**
-	 * @param data
-	 * @param columnNames
-	 */
 	public ProcessManagerTableModel(Object[][] data, Object[] columnNames) {
 		super(data, columnNames);
 	}

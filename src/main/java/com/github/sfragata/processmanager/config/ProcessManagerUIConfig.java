@@ -1,6 +1,3 @@
-/**
- *
- */
 package com.github.sfragata.processmanager.config;
 
 import org.springframework.context.annotation.Bean;

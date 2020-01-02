@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.github.sfragata.processmanager.manager;
 
 /**
@@ -9,5 +6,5 @@ package com.github.sfragata.processmanager.manager;
  */
 public interface ProcessManagerFactory {
 
-	public ProcessManager getProcessManager();
+	ProcessManager getProcessManager();
 }

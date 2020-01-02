@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.github.sfragata.processmanager.manager.impl;
 
 import org.slf4j.Logger;
@@ -32,7 +29,7 @@ public class ProcessManagerFactoryImpl implements ProcessManagerFactory {
 	public ProcessManager getProcessManager() {
 		String osName = System.getProperty("os.name");
 		logger.info("OS Name: {}", osName);
-		if (osName.indexOf("Windows") == -1) {
+		if (!osName.contains("Windows")) {
 			return unix;
 		} else {
 			return sysinternals;

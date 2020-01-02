@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.github.sfragata.processmanager.to;
 
 import java.io.Serializable;

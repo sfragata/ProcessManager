@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.github.sfragata.processmanager.aop;
 
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -18,17 +15,17 @@ import org.springframework.util.StopWatch;
 @Component
 public class LogInterceptor {
 
-	private static Logger logger = LoggerFactory.getLogger(LogInterceptor.class);
+	private static final Logger logger = LoggerFactory.getLogger(LogInterceptor.class);
 
 	@Around("execution(* com.github.sfragata.processmanager.manager.impl..*(..))")
 	public Object intercept(ProceedingJoinPoint pjp) throws Throwable {
-		String serviceName = new StringBuilder(pjp.getTarget().getClass().getName()).append(".")
-				.append(pjp.getSignature().getName()).toString();
+		String serviceName = pjp.getTarget().getClass().getName() + "." +
+				pjp.getSignature().getName();
 		if (logger.isDebugEnabled()) {
 			logger.debug("Beginning method: {}", serviceName);
 		}
 		StopWatch watch = new StopWatch("Profiling");
-		Object retVal = null;
+		Object retVal;
 		watch.start(pjp.toShortString());
 		try {
 			retVal = pjp.proceed();
