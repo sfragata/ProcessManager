@@ -3,13 +3,8 @@
  */
 package com.github.sfragata.processmanager.config;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
-import org.springframework.context.annotation.EnableMBeanExport;
+import org.springframework.context.annotation.*;
 import org.springframework.context.support.ResourceBundleMessageSource;
-import org.swixml.SwingEngine;
 
 /**
  * Spring configuration (to replace the xml)
@@ -18,7 +13,8 @@ import org.swixml.SwingEngine;
  * 
  */
 @Configuration
-@ComponentScan(basePackages = { "com.github.sfragata", "br.com.sfragata.log4jmanager" })
+@ComponentScan(basePackages = { "com.github.sfragata.processmanager.apo", "com.github.sfragata.processmanager.manager"
+		,"com.github.sfragata.processmanager.util", "br.com.sfragata.log4jmanager" })
 @EnableMBeanExport
 @EnableAspectJAutoProxy
 public class ProcessManagerConfig {
@@ -30,10 +26,5 @@ public class ProcessManagerConfig {
 		return source;
 	}
 
-	@Bean
-	public SwingEngine swixml() {
-		SwingEngine swixml = new SwingEngine();
-		return swixml;
-	}
 
 }

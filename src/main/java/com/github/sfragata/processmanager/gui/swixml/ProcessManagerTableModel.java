@@ -1,11 +1,10 @@
 /**
  * 
  */
-package com.github.sfragata.processmanager.manager.gui.swixml;
-
-import java.util.Vector;
+package com.github.sfragata.processmanager.gui.swixml;
 
 import javax.swing.table.DefaultTableModel;
+import java.util.Vector;
 
 /**
  * @author Silvio Fragata da Silva - a5014999

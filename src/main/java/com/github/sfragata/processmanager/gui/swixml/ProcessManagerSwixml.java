@@ -1,5 +1,18 @@
-package com.github.sfragata.processmanager.manager.gui.swixml;
+package com.github.sfragata.processmanager.gui.swixml;
 
+import com.github.sfragata.processmanager.manager.ProcessManager;
+import com.github.sfragata.processmanager.manager.ProcessManagerException;
+import com.github.sfragata.processmanager.manager.ProcessManagerFactory;
+import com.github.sfragata.processmanager.to.ProcessTO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.stereotype.Component;
+import org.swixml.SwingEngine;
+
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -8,27 +21,10 @@ import java.io.StringWriter;
 import java.util.List;
 import java.util.Locale;
 
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
-import org.springframework.stereotype.Component;
-import org.swixml.SwingEngine;
-
-import com.github.sfragata.processmanager.manager.ProcessManager;
-import com.github.sfragata.processmanager.manager.ProcessManagerException;
-import com.github.sfragata.processmanager.manager.ProcessManagerFactory;
-import com.github.sfragata.processmanager.to.ProcessTO;
-
 @Component
 public class ProcessManagerSwixml implements ActionListener {
 
-	private static final String PROCESSMANAGER_XML = "com/github/sfragata/processmanager/manager/gui/swixml/processmanager.xml";
+	private static final String PROCESSMANAGER_XML = "com/github/sfragata/processmanager/gui/swixml/processmanager.xml";
 
 	private static final Logger logger = LoggerFactory.getLogger(ProcessManagerSwixml.class);
 

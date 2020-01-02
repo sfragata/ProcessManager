@@ -1,28 +1,26 @@
 package com.github.sfragata.processmanager.manager;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
+import com.github.sfragata.processmanager.config.ProcessManagerConfig;
+import com.github.sfragata.processmanager.to.ProcessTO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.github.sfragata.processmanager.config.ProcessManagerConfig;
-import com.github.sfragata.processmanager.to.ProcessTO;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 
 /**
  * 
  * @author sfragata
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = { ProcessManagerConfig.class })
+@ContextConfiguration(classes = {ProcessManagerConfig.class })
 public class ProcessManagerTest {
 
 	@Autowired
@@ -32,13 +30,14 @@ public class ProcessManagerTest {
 	public void shouldReturnJava() {
 		try {
 			List<ProcessTO> processes = processManagerFactory.getProcessManager().getProcesses("java");
-			System.out.println(processes);
+			assertNotNull(processes);
+			assertFalse(processes.isEmpty());
 		} catch (ProcessManagerException ex) {
 			Logger.getLogger(ProcessManagerTest.class.getName()).log(Level.SEVERE, null, ex);
 		}
 
 	}
-
+/*
 	@Test
 	public void shouldReturn() {
 		try {
@@ -58,5 +57,5 @@ public class ProcessManagerTest {
 		}
 
 	}
-
+*/
 }

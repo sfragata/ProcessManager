@@ -105,21 +105,21 @@
 				<configuration>
 					<programs>
 						<program>
-							<mainClass>com.github.sfragata.processmanager.manager.gui.swixml.ProcessManagerLauncher</mainClass>
-							<name>processmanager</name>
+							<mainClass>com.github.sfragata.processmanager.gui.swixml.ProcessManagerLauncher</mainClass>
+							<id>processmanager</id>
 						</program>
 					</programs>
-					<executions>
-						<execution>
-							<phase>package</phase>
-							<goals>
-								<goal>assemble</goal>
-							</goals>
-						</execution>
-					</executions>
 					<repositoryLayout>flat</repositoryLayout>
 					<repositoryName>lib</repositoryName>
 				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>assemble</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 
 		</plugins>

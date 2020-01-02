@@ -28,7 +28,7 @@
 			requestfocusenabled="false" rowselectionallowed="true"
 			columnselectionallowed="false" autocreatecolumnsfrommodel="true"
 			selectionmode="2" editingcolumn="false" 
-			initclass="com.github.sfragata.processmanager.manager.gui.swixml.ProcessManagerTableModel" />
+			initclass="com.github.sfragata.processmanager.gui.swixml.ProcessManagerTableModel" />
 	</scrollpane>
 	<panel constraints="BorderLayout.SOUTH" name="panelSouth"
 		layout="BorderLayout">
