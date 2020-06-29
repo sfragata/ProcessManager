@@ -10,7 +10,7 @@ jobs:
     strategy:
       matrix:
         java: [11, 13]
-        
+
     steps:
     - name: Checkout branch
       uses: actions/checkout@v1
@@ -19,4 +19,4 @@ jobs:
       with:
         java-version: ${{matrix.java}}
     - name: Build with Maven
-      run: mvn -B verify --file pom.xml
+      run: mvn -B verify -Djava.version=${{matrix.java}} --file pom.xml
