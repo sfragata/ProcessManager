@@ -29,7 +29,7 @@
 		<aspectj-maven-plugin-version>1.11.1</aspectj-maven-plugin-version>
 		<spring-version>5.2.2.RELEASE</spring-version>
 		<maven-compiler-plugin-version>3.8.1</maven-compiler-plugin-version>
-		<maven-source-plugin-version>2.4</maven-source-plugin-version>
+		<maven-source-plugin-version>3.2.1</maven-source-plugin-version>
 		<appassembler-maven-plugin.version>2.1.0</appassembler-maven-plugin.version>
 		<webstart-maven-plugin.version>1.0-beta-6</webstart-maven-plugin.version>
 		<junit-version>4.12</junit-version>
