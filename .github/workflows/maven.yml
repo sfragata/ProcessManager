@@ -19,4 +19,4 @@ jobs:
       with:
         java-version: ${{matrix.java}}
     - name: Build with Maven
-      run: mvn -B verify -Djava.version=${{matrix.java}} --file pom.xml
+      run: mvn -B verify -Djava.version=${{matrix.java}} -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn --file pom.xml
