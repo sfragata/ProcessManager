@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration>
+    <Appenders>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{ABSOLUTE} %5p %c - %m%n"/>
+        </Console>
+        <RollingFile name="APP_LOG_FILE" fileName="/tmp/processmanager.log" filePattern="/tmp/processmanager-%d{yyyy-MM-dd}.%i.log.gz"
+                     ignoreExceptions="false">
+            <PatternLayout pattern="%d{ISO8601} %5p %c - %m%n" />
+            <Policies>
+                <OnStartupTriggeringPolicy />
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="10MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="5" />
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="com.github.sfragata" level="debug">
+            <AppenderRef ref="APP_LOG_FILE"/>
+        </Logger>
+        <Logger name="org.springframework" level="info">
+            <AppenderRef ref="APP_LOG_FILE"/>
+        </Logger>
+        <Root level="info">
+            <AppenderRef ref="APP_LOG_FILE"/>
+        </Root>
+    </Loggers>
+
+</Configuration>

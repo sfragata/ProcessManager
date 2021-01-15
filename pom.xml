@@ -1,4 +1,3 @@
-
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
@@ -9,33 +8,16 @@
 	<name>ProcessManager</name>
 	<url>http://maven.apache.org</url>
 
-
-	<repositories>
-		<repository>
-			<id>my.mvn.repo</id>
-			<url>https://github.com/sfragata/mvn-sfragata-repo/raw/master</url>
-			<!-- use snapshot version -->
-			<snapshots>
-				<enabled>true</enabled>
-				<updatePolicy>always</updatePolicy>
-			</snapshots>
-		</repository>
-	</repositories>
-
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<aspectj-version>1.9.5</aspectj-version>
-		<cglib-version>2.2</cglib-version>
-		<aspectj-maven-plugin-version>1.11.1</aspectj-maven-plugin-version>
 		<spring-version>5.2.2.RELEASE</spring-version>
 		<maven-compiler-plugin-version>3.8.1</maven-compiler-plugin-version>
 		<maven-source-plugin-version>3.2.1</maven-source-plugin-version>
 		<appassembler-maven-plugin.version>2.1.0</appassembler-maven-plugin.version>
 		<webstart-maven-plugin.version>1.0-beta-6</webstart-maven-plugin.version>
 		<junit-version>4.13.1</junit-version>
-		<log4j-version>1.2.17</log4j-version>
+		<log4j.version>2.13.3</log4j.version>
 		<commons-lang3.version>3.9</commons-lang3.version>
-		<log4jmanager-version>1.0</log4jmanager-version>
 		<keytool-api-1.7.version>1.4</keytool-api-1.7.version>
 		<java.version>11</java.version>
 		<aspect-target.version>1.9</aspect-target.version>
@@ -69,36 +51,6 @@
 				</executions>
 			</plugin>			
 			<plugin>
-				<groupId>com.github.m50d</groupId>
-				<artifactId>aspectj-maven-plugin</artifactId>
-				<version>${aspectj-maven-plugin-version}</version>
-				<configuration>
-					<complianceLevel>${java.version}</complianceLevel>
-					<source>${java.version}</source>
-					<target>${java.version}</target>
-				</configuration>
-				<executions>
-					<execution>
-						<phase>process-sources</phase>
-						<goals>
-							<goal>compile</goal>
-						</goals>
-					</execution>
-				</executions>
-				<dependencies>
-					<dependency>
-						<groupId>org.aspectj</groupId>
-						<artifactId>aspectjrt</artifactId>
-						<version>${aspectj-version}</version>
-					</dependency>
-					<dependency>
-						<groupId>org.aspectj</groupId>
-						<artifactId>aspectjtools</artifactId>
-						<version>${aspectj-version}</version>
-					</dependency>
-				</dependencies>
-			</plugin>
-			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>appassembler-maven-plugin</artifactId>
 				<version>${appassembler-maven-plugin.version}</version>
@@ -123,38 +75,6 @@
 			</plugin>
 
 		</plugins>
-		<pluginManagement>
-			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
-				<plugin>
-					<groupId>org.eclipse.m2e</groupId>
-					<artifactId>lifecycle-mapping</artifactId>
-					<version>1.0.0</version>
-					<configuration>
-						<lifecycleMappingMetadata>
-							<pluginExecutions>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>
-											org.codehaus.mojo
-										</groupId>
-										<artifactId>
-											aspectj-maven-plugin
-										</artifactId>
-										<versionRange>
-											[1.4,)
-										</versionRange>
-										<goals>
-											<goal>compile</goal>
-										</goals>
-									</pluginExecutionFilter>
-								</pluginExecution>
-							</pluginExecutions>
-						</lifecycleMappingMetadata>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
 	</build>
 
 	<dependencies>
@@ -194,34 +114,16 @@
 		</dependency>
 
 		<dependency>
-			<groupId>log4j</groupId>
+			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j</artifactId>
-			<version>${log4j-version}</version>
+			<version>${log4j.version}</version>
+			<type>pom</type>
 		</dependency>
 
 		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjrt</artifactId>
-			<version>${aspectj-version}</version>
-			<type>jar</type>
-		</dependency>
-
-		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjtools</artifactId>
-			<version>${aspectj-version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>cglib</groupId>
-			<artifactId>cglib</artifactId>
-			<version>${cglib-version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.swixml</groupId>
-			<artifactId>swixml</artifactId>
-			<version>${swixml-version}</version>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j-impl</artifactId>
+			<version>${log4j.version}</version>
 		</dependency>
 
 		<dependency>
@@ -229,18 +131,25 @@
 			<artifactId>slf4j-api</artifactId>
 			<version>${slf4j-version}</version>
 		</dependency>
+
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>${slf4j-version}</version>
+			<groupId>org.swixml</groupId>
+			<artifactId>swixml</artifactId>
+			<version>${swixml-version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>ant</artifactId>
+					<groupId>ant</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>j2h</artifactId>
+					<groupId>java2html</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 
-		<dependency>
-			<groupId>br.com.sfragata</groupId>
-			<artifactId>Log4JManager</artifactId>
-			<version>${log4jmanager-version}</version>
-		</dependency>
+
 	</dependencies>
 
 </project>
