@@ -10,19 +10,19 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring-version>5.2.2.RELEASE</spring-version>
+		<spring-version>5.3.14</spring-version>
 		<maven-compiler-plugin-version>3.8.1</maven-compiler-plugin-version>
 		<maven-source-plugin-version>3.2.1</maven-source-plugin-version>
 		<appassembler-maven-plugin.version>2.1.0</appassembler-maven-plugin.version>
 		<webstart-maven-plugin.version>1.0-beta-6</webstart-maven-plugin.version>
-		<junit-version>4.13.1</junit-version>
-		<log4j.version>2.13.3</log4j.version>
+		<junit-version>4.13.2</junit-version>
+		<log4j.version>2.17.0</log4j.version>
 		<commons-lang3.version>3.9</commons-lang3.version>
 		<keytool-api-1.7.version>1.4</keytool-api-1.7.version>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 		<aspect-target.version>1.9</aspect-target.version>
 		<swixml-version>1.5.144</swixml-version>
-		<slf4j-version>1.7.29</slf4j-version>
+		<slf4j-version>1.7.32</slf4j-version>
 	</properties>
 	<build>
 		<plugins>
