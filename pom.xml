@@ -10,7 +10,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring-version>5.3.14</spring-version>
+		<spring-version>5.3.18</spring-version>
 		<maven-compiler-plugin-version>3.8.1</maven-compiler-plugin-version>
 		<maven-source-plugin-version>3.2.1</maven-source-plugin-version>
 		<appassembler-maven-plugin.version>2.1.0</appassembler-maven-plugin.version>
